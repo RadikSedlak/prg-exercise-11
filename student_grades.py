@@ -11,6 +11,33 @@ class StudentsGrades:
     def count(self):
         return len(self.scores)
 
+    # bonusovy ukoly:
+
+    def best(self):
+        return max(self.scores)
+
+    def worst(self):
+        return min(self.scores)
+
+    def average(self):
+        return sum(self.scores) / len(self.scores)
+
+    def pass_rate(self):
+        passed = 0
+
+        for score in self.scores:
+            if score >= 50:
+                passed += 1
+
+        return passed / len(self.scores)
+
+    def __str__(self):
+        return f"StudentsGrades: {self.count()} studentů, průměr {self.average():.1f}"
+
+
+
+    # bonusovy ukoly
+
 
     def get_grade(self, index):
         points = self.scores[index]
@@ -73,7 +100,7 @@ class StudentsGrades:
 
 
 
-from main import StudentsGrades
+from student_grades import StudentsGrades
 
 def main():
     results = StudentsGrades([85, 42, 91])
